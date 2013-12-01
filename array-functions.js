@@ -77,3 +77,21 @@ var dropRight = function(arr,n){
 }
 var array = [1,2,3,4,5,6,7];
 console.log(dropRight(array,3));
+
+/* dropWhile */
+var dropWhile = function(arr,p){
+	var i;
+	var a = [];
+	for(i = 0; i < arr.length; i++){
+		if(!p(arr[i])){
+			a.push(arr[i]);
+		}
+	}
+	
+	return a;
+}
+var isOdd = function(n){
+	return (n%2)!=0;
+}
+var array = [1,2,3,4,5];
+console.log(dropWhile(array,isOdd));
