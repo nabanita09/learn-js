@@ -51,8 +51,21 @@ console.log(last(array));
 /* Tail function */
 
 var tail = function(arr){
-	return arr.slice(1,arr.length);
+	return arr.slice(1);
 }
 
 var array=[1,2,3,4];
 console.log(tail(array));
+
+/* Distinct function */
+var distinct = function(arr){
+	var a = [];
+	var i;
+	for(i = 0; i < arr.length; i++){
+		if(a.indexOf(arr[i])==-1)
+		a.push(arr[i]);
+	}
+	return a;
+}
+var array = [1,2,1,2,3];
+console.log(distinct(array));
