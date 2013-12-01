@@ -12,7 +12,6 @@ var count = function(arr,p){
 }
 
 
-
 var array = [2, 4, 6, 8];
 
 console.log(count(array,function(n){
@@ -23,3 +22,20 @@ console.log(count(array,function(n){
 console.log(count(array, function(n){
 	return (n%2) == 0;
 }));
+
+
+/* Head function */
+var head = function(a){
+	return a[0];
+}
+
+var array = [1,2,3,4];
+console.log(head(array));
+
+/* Init function */
+var init = function(arr){
+	return arr.slice(0,arr.length-1);
+}
+
+var array = [1,2,3,4];
+console.log(init(array));
