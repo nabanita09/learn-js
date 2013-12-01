@@ -70,3 +70,10 @@ var distinct = function(arr){
 }
 var array = [1,2,1,2,3];
 console.log(distinct(array));
+
+/* dropRight */
+var dropRight = function(arr,n){
+	return arr.slice(0,arr.length-n);
+}
+var array = [1,2,3,4,5,6,7];
+console.log(dropRight(array,3));
