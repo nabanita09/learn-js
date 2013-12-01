@@ -62,8 +62,9 @@ var distinct = function(arr){
 	var a = [];
 	var i;
 	for(i = 0; i < arr.length; i++){
-		if(a.indexOf(arr[i])==-1)
-		a.push(arr[i]);
+		if(a.indexOf(arr[i])==-1){
+			a.push(arr[i]);
+		}
 	}
 	return a;
 }
