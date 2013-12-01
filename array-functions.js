@@ -95,3 +95,18 @@ var isOdd = function(n){
 }
 var array = [1,2,3,4,5];
 console.log(dropWhile(array,isOdd));
+
+/* endsWith */
+ var endsWith = function(a,b){
+ 	var i = a.length-1;
+ 	var j = b.length-1;
+ 	for(j = b.length-1; j >= 0; j--){
+ 		if(b[j] != a[i]){
+ 			return false;
+ 		}
+ 		i--;
+ 	}
+ 	return true;
+ }
+
+ console.log(endsWith([1,2,3,4,5],[7,8,9]));
