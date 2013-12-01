@@ -39,3 +39,20 @@ var init = function(arr){
 
 var array = [1,2,3,4];
 console.log(init(array));
+
+/* Last function */
+var last = function(arr){
+	return arr.slice(arr.length-1);
+}
+
+var array = [1,2,3,4];
+console.log(last(array));
+
+/* Tail function */
+
+var tail = function(arr){
+	return arr.slice(1,arr.length);
+}
+
+var array=[1,2,3,4];
+console.log(tail(array));
