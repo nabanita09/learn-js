@@ -24,7 +24,7 @@ console.log(count(array, function(n){
 }));
 
 
-/* Head function */
+/* head function */
 var head = function(a){
 	return a[0];
 }
@@ -32,7 +32,8 @@ var head = function(a){
 var array = [1,2,3,4];
 console.log(head(array));
 
-/* Init function */
+
+/* init function */
 var init = function(arr){
 	return arr.slice(0,arr.length-1);
 }
@@ -40,7 +41,8 @@ var init = function(arr){
 var array = [1,2,3,4];
 console.log(init(array));
 
-/* Last function */
+
+/* last function */
 var last = function(arr){
 	return arr.slice(arr.length-1);
 }
@@ -48,8 +50,8 @@ var last = function(arr){
 var array = [1,2,3,4];
 console.log(last(array));
 
-/* Tail function */
 
+/* tail function */
 var tail = function(arr){
 	return arr.slice(1);
 }
@@ -57,7 +59,8 @@ var tail = function(arr){
 var array=[1,2,3,4];
 console.log(tail(array));
 
-/* Distinct function */
+
+/* distinct function */
 var distinct = function(arr){
 	var a = [];
 	var i;
@@ -71,14 +74,16 @@ var distinct = function(arr){
 var array = [1,2,1,2,3];
 console.log(distinct(array));
 
-/* dropRight */
+
+/* dropRight function */
 var dropRight = function(arr,n){
 	return arr.slice(0,arr.length-n);
 }
 var array = [1,2,3,4,5,6,7];
 console.log(dropRight(array,3));
 
-/* dropWhile */
+
+/* dropWhile function */
 var dropWhile = function(arr,p){
 	var i;
 	var a = [];
@@ -96,7 +101,8 @@ var isOdd = function(n){
 var array = [1,2,3,4,5];
 console.log(dropWhile(array,isOdd));
 
-/* endsWith */
+
+/* endsWith function */
  var endsWith = function(a,b){
  	var i = a.length-1;
  	var j = b.length-1;
@@ -111,8 +117,8 @@ console.log(dropWhile(array,isOdd));
 
  console.log(endsWith([1,2,3,4,5],[7,8,9]));
 
- /* Filter function */
 
+ /* filter function */
  var filter = function(arr,p){
  		var i;
  		var a = [];
@@ -131,8 +137,8 @@ console.log(dropWhile(array,isOdd));
  var array = [1,2,3,4,5,6,7,8,9,10];
  console.log(filter(array,isEven));
 
- /* filterNot */
 
+ /* filterNot function */
  var filterNot = function(arr,p){
  	var a = [];
  	var i;
@@ -150,3 +156,24 @@ var isEven = function(n){
 
  var array = [1,2,3,4,5,6,7,8,9,10];
  console.log(filterNot(array,isEven));
+
+
+ /* find function */
+ var find = function(arr,p){
+ 	var a = [];
+ 	var i;
+ 	for(i = 0; i <= arr.length; i++){
+ 		if(p(arr[i])){
+ 			a.push(arr[i]);
+ 			return a;
+ 		}
+ 	}
+ 	return;
+ }
+
+ var isEven = function(n){
+ 	return (n%2) == 0;
+ }
+
+ var array = [1,2,3,4,5,6,7,8,9,10];
+ console.log(find(array,isEven));
