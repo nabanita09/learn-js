@@ -177,3 +177,12 @@ var isEven = function(n){
 
  var array = [1,2,3,4,5,6,7,8,9,10];
  console.log(find(array,isEven));
+
+
+ /* flatten function */
+ var flatten = function(a,b){
+ 	var c = [];
+ 	c = a.concat(b);
+ 	return c;
+ }
+ console.log(flatten([1,2,3],[1,2,3]));
