@@ -130,3 +130,23 @@ console.log(dropWhile(array,isOdd));
 
  var array = [1,2,3,4,5,6,7,8,9,10];
  console.log(filter(array,isEven));
+
+ /* filterNot */
+
+ var filterNot = function(arr,p){
+ 	var a = [];
+ 	var i;
+ 	for(i = 0; i < arr.length; i++){
+ 		if(!p(arr[i])){
+ 			a.push(arr[i]);
+ 		}
+ 	}
+ 	return a;
+ }
+
+var isEven = function(n){
+	return (n%2) == 0
+}
+
+ var array = [1,2,3,4,5,6,7,8,9,10];
+ console.log(filterNot(array,isEven));
