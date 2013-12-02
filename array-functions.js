@@ -110,3 +110,23 @@ console.log(dropWhile(array,isOdd));
  }
 
  console.log(endsWith([1,2,3,4,5],[7,8,9]));
+
+ /* Filter function */
+
+ var filter = function(arr,p){
+ 		var i;
+ 		var a = [];
+ 		for(i = 0; i <= arr.length; i++){
+ 			if(p(arr[i])){
+ 				a.push(arr[i]);
+ 			}
+ 		}
+ 		return a;
+ }
+
+ var isEven = function(n){
+ 	return (n%2) == 0;
+ }
+
+ var array = [1,2,3,4,5,6,7,8,9,10];
+ console.log(filter(array,isEven));
