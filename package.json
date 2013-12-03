@@ -1,0 +1,18 @@
+{
+"name": "learn-js",
+"version": "0.0.1",
+"description": "JavaScript Snippets for Common Tasks",
+"author": {
+"name": "Nabanita Sarker",
+"email": "nabanita08.sarker@gmail.com"
+},
+"main": "bin/runner",
+"repository": {
+"type": "git",
+"url": "https://github.com/nabanita09/learn-js.git"
+},
+"dependencies": {
+"nodeunit": "*"
+}
+}
+
