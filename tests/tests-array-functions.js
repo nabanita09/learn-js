@@ -61,7 +61,7 @@ exports['head'] = nodeunit.testCase({
 
 exports['init'] = nodeunit.testCase({
 /*'Init function should return all elements except the last one from an array' : function(test) {
-a	test.equal(arrays.init([1,2,3,4,5]), [1,2,3,4]);
+	test.equal(arrays.init([1,2,3,4,5]), [1,2,3,4]);
 	test.done();
 },*/
 
@@ -72,7 +72,6 @@ a	test.equal(arrays.init([1,2,3,4,5]), [1,2,3,4]);
 });
 
 /* Test Cases of Last function*/
-
 exports['last'] = nodeunit.testCase({
 'Last function should return last element of an array' : function(test) {
 	test.equal(arrays.last([1,2,3,4,5]),5);
@@ -81,6 +80,19 @@ exports['last'] = nodeunit.testCase({
 
 'last function with an empty array' : function(test) {
 	test.equal(typeof (arrays.last([])),'object');
+	test.done();
+},
+'Last function should return last string from array of strings' : function(test)
+{
+	test.equal((arrays.last(["one","two","three"])),"three");
+	test.done();
+}
+});
+
+/* Test cases of Tail function */
+exports['tail'] = nodeunit.testCase ({
+'tail function with an empty array' : function(test) {
+	test.equal(typeof (arrays.tail([])),'object');
 	test.done();
 }
 });

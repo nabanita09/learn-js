@@ -35,7 +35,7 @@ exports.tail = function(arr){
 }
 
 /* distinct function */
-/* var distinct = function(arr){
+var distinct = function(arr){
 	var a = [];
 	var i;
 	for(i = 0; i < arr.length; i++){
@@ -45,7 +45,7 @@ exports.tail = function(arr){
 	}
 	return a;
 }
-var array = [1,2,1,2,3];
+/*var array = [1,2,1,2,3];
 console.log(distinct(array)); */
 
 
