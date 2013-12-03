@@ -160,3 +160,11 @@ var isEven = function(n){
  	return c;
  }
  console.log(flatten([1,2,3],[1,2,3])); */
+
+/* union function */
+var union = function(a,b){
+	var c = [];
+	c = a.concat(b);
+	return c;
+}
+console.log(union([1,2,2,2,5],[3,4,5,6,7,8]));
