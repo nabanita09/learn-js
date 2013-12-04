@@ -82,7 +82,7 @@ exports.endsWith = function(a,b){
 
 
  /* filter function */
-/* var filter = function(arr,p){
+exports.filter = function(arr,p){
  		var i;
  		var a = [];
  		for(i = 0; i <= arr.length; i++){
@@ -93,16 +93,9 @@ exports.endsWith = function(a,b){
  		return a;
  }
 
- var isEven = function(n){
- 	return (n%2) == 0;
- }
 
- var array = [1,2,3,4,5,6,7,8,9,10];
- console.log(filter(array,isEven)); */
-
-
- /* filterNot function */
-/*  var filterNot = function(arr,p){
+/* filterNot function */
+exports.filterNot = function(arr,p){
  	var a = [];
  	var i;
  	for(i = 0; i < arr.length; i++){
@@ -113,7 +106,7 @@ exports.endsWith = function(a,b){
  	return a;
  }
 
-var isEven = function(n){
+/*var isEven = function(n){
 	return (n%2) == 0
 }
 

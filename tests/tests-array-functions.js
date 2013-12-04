@@ -187,3 +187,42 @@ exports['endsWith'] = nodeunit.testCase ({
 	test.done();
 } 
 });
+
+/* Test Cases for */
+exports['filter'] = nodeunit.testCase ({
+'filter an empty array' : function (test){
+	var isEven = function(n){
+        return (n%2) == 0;
+	};
+	var result = arrays.filter([],isEven);
+	test.equal(result.length,0);
+	test.done();
+},
+'filter an proper array' : function(test){
+	var isEven = function(n){
+        return (n%2) == 0;
+        };
+        var result = arrays.filter([1,2,3,4,5,6,7,8,9,10],isEven);
+        test.equal(arrEqual(result,[2,4,6,8,10]),true);
+        test.done();
+}
+});
+
+exports['filterNot'] = nodeunit.testCase ({
+'filternot on an empty array' : function (test){
+	var isEven = function(n){
+        	return (n%2) == 0
+	};
+	var result = arrays.filterNot([],isEven);
+	test.equal(result.length,0);
+	test.done();
+},
+'filternot on an array' : function (test) {
+	var isEven = function(n){
+        	return (n%2) == 0
+        };
+        var result = arrays.filterNot([1,2,3,4,5,6,7,8,9,10],isEven);
+        test.equal(arrEqual(result,[1,3,5,7,9]),true);
+        test.done();
+}
+});
