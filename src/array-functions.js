@@ -106,16 +106,8 @@ exports.filterNot = function(arr,p){
  	return a;
  }
 
-/*var isEven = function(n){
-	return (n%2) == 0
-}
-
- var array = [1,2,3,4,5,6,7,8,9,10];
- console.log(filterNot(array,isEven)); */
-
-
- /* find function */
-/* var find = function(arr,p){
+/* find function */
+exports.find = function(arr,p){
  	var a = [];
  	var i;
  	for(i = 0; i <= arr.length; i++){
@@ -125,28 +117,20 @@ exports.filterNot = function(arr,p){
  		}
  	}
  	return;
- }
-
- var isEven = function(n){
- 	return (n%2) == 0;
- }
-
- var array = [1,2,3,4,5,6,7,8,9,10];
- console.log(find(array,isEven)); */
-
+}
 
  /* flatten function */
-/*  var flatten = function(a,b){
+exports.flatten = function(a,b){
  	var c = [];
  	c = a.concat(b);
  	return c;
  }
- console.log(flatten([1,2,3],[1,2,3])); */
+
 
 /* union function */
-var union = function(a,b){
+exports.union = function(a,b){
 	var c = [];
 	c = a.concat(b);
 	return c;
 }
-console.log(union([1,2,2,2,5],[3,4,5,6,7,8]));
+/*console.log(union([1,2,2,2,5],[3,4,5,6,7,8]));*/

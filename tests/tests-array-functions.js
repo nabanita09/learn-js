@@ -188,7 +188,7 @@ exports['endsWith'] = nodeunit.testCase ({
 } 
 });
 
-/* Test Cases for */
+/* Test Cases for filter */
 exports['filter'] = nodeunit.testCase ({
 'filter an empty array' : function (test){
 	var isEven = function(n){
@@ -208,6 +208,8 @@ exports['filter'] = nodeunit.testCase ({
 }
 });
 
+/* Test cases for filternot */
+
 exports['filterNot'] = nodeunit.testCase ({
 'filternot on an empty array' : function (test){
 	var isEven = function(n){
@@ -226,3 +228,54 @@ exports['filterNot'] = nodeunit.testCase ({
         test.done();
 }
 });
+
+/* TestCases for find */
+exports['find'] = nodeunit.testCase ({
+/*'filter on an empty array' : function (test) {
+	var isEven = function(n){
+        	return (n%2) == 0;
+	}
+	var result = arrays.find([],isEven);
+	test.equal(result.length,0);
+	test.done();
+},*/
+'filter on an array' : function (test) {
+	var isEven = function(n){
+                return (n%2) == 0;
+        }
+        var result = arrays.find([1,2,3,4,5,6,7,8,9,10],isEven);
+        test.equal(arrEqual(result,[2]),true);
+        test.done();
+}
+});
+
+/* TestCases for flatten */
+
+exports['flatten'] = nodeunit.testCase ({
+'flatten between two arrays' : function(test){
+	var result = arrays.flatten([1,2,3],[1,2,3]);
+	test.equal(arrEqual(result,[1,2,3,1,2,3]),true);
+	test.done();
+},
+'flatten between two empty array' : function (test) {
+	var result = arrays.flatten([],[]);
+        test.equal(result,0);
+        test.done();
+}
+});
+
+/* TestCases for union */
+
+exports['union'] = nodeunit.testCase ({
+'union between two arrays' : function(test){
+        var result = arrays.union([1,2,3,4,5],[3,4,5,6,7,8]);
+        test.equal(arrEqual(result,[1,2,3,4,5,3,4,5,6,7,8]),true);
+        test.done();
+},
+'union between two empty array' : function (test) {
+        var result = arrays.union([],[]);
+        test.equal(result,0);
+        test.done();
+}
+});
+
