@@ -107,6 +107,12 @@ exports['tail'] = nodeunit.testCase ({
 'tail function with an empty array' : function(test) {
 	test.equal(typeof (arrays.tail([])),'object');
 	test.done();
+},
+
+'tail function with proper array' : function(test) {
+	var result = arrays.tail([1,2,3,4,5]);
+	test.equal(arrEqual(result,[2,3,4,5]), true);
+	test.done();
 }
 });
 
@@ -124,6 +130,20 @@ exports['distinct'] = nodeunit.testCase ({
 }
 });
 
+/* Test Cases for dropRight */
+exports['dropRight'] = nodeunit.testCase ({
+'dropright function with an empty array' : function(test) {
+	var result = arrays.dropRight([]);
+	test.equal(result.length, 0);
+	test.done();
+},
+'dropright function with an array' : function (test) {
+	var result = arrays.dropRight([1,2,3,4,5],2);
+	test.equal(arrEqual(result, [1,2,3]), true);
+	test.done();
+}
+});
+
 /* Test cases of dropWhile function */
 exports['dropWhile'] = nodeunit.testCase ({
 'an empty array' : function (test) {
@@ -134,13 +154,14 @@ exports['dropWhile'] = nodeunit.testCase ({
 	test.equal(result.length, 0);
 	test.done();
 },
-/*'a proper array' : function (test) {
+'a proper array' : function (test) {
 	var isOdd = function (n) {
 	return (n%2)!=0;
-	}
-	test.equal(arrays.dropWhile([1,2,3,4,5,6], isOdd), [2,4,6]);
+	};
+	var result = (arrays.dropWhile([1,2,3,4,5,6], isOdd));
+	test.equal(arrEqual(result,[2,4,6]),true);
 	test.done();
-}*/
+}
 });
 
 /* Test Cases for endsWith function */

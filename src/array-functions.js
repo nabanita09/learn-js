@@ -47,10 +47,10 @@ exports.distinct = function(arr){
 }
 
 /* dropRight function */
-/*var dropRight = function(arr,n){
+exports.dropRight = function(arr,n){
 	return arr.slice(0,arr.length-n);
 }
-var array = [1,2,3,4,5,6,7];
+/*var array = [1,2,3,4,5,6,7];
 console.log(dropRight(array,3)); */
 
 
