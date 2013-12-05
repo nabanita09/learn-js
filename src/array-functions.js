@@ -46,6 +46,12 @@ exports.distinct = function(arr){
 	return a;
 }
 
+/* drop function */
+exports.drop = function(a, n) {
+	return a.slice(n);
+};
+
+
 /* dropRight function */
 exports.dropRight = function(arr,n){
 	return arr.slice(0,arr.length-n);
@@ -137,9 +143,7 @@ exports.union = function(a,b){
 
 /* forAll function */
 
-#!/usr/bin/node
-
-var forall = function(a,p){
+/*var forall = function(a,p){
         return p;
 }
 
@@ -160,9 +164,7 @@ console.log(forall([1,2,3,4,5,6,7,8,9,10],lessThanEleven));
 
 /* intersect function */
 
-#!/usr/bin/node
-
-var intersect = function(a,b){
+/*var intersect = function(a,b){
         var c = [];
         var i;
         for(i = 0; i < a.length; i++){
@@ -176,14 +178,13 @@ var intersect = function(a,b){
 console.log(intersect([1,2,3,4,5],[3,4,5,6,7,8]));
 
 /* grouped function */
-#!/usr/bin/node
 
-var grouped = function(arr,size){
+/* var grouped = function(arr,size){
         var grparr = [];
         var i = Math.round(arr.length/size);
 
 
 }
 
-console.log(grouped([1,2,3,4,5,6,7,8,9,10],3));
-~                                                    
+console.log(grouped([1,2,3,4,5,6,7,8,9,10],3)); */
+                                                   

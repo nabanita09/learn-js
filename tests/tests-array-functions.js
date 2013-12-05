@@ -59,11 +59,11 @@ exports['head'] = nodeunit.testCase({
 	test.equal(arrays.head([1,2,3,4]),1);
 	test.done();
 },
-'Head function with empty array should return undefined' : function(test) {
+'Head function with an empty array should return undefined' : function(test) {
 	test.equal(typeof (arrays.head([])),'undefined');
 	test.done();
 },
-'String array should return first string' : function(test) {
+'head function for a string array should return the first string' : function(test) {
 	test.equal(arrays.head(["one","two","three"]),"one");
 	test.done();
 }
@@ -78,9 +78,14 @@ exports['init'] = nodeunit.testCase({
 	test.done();
 },
 
-'Init function with empty array should return undefined' : function(test) {
+'Init function with empty array should return object' : function(test) {
 	test.equal(typeof (arrays.init([])),'object');
 	test.done();
+},
+'Init function with string array should return all the strings except the last one' : function (test) {
+	var result = arrays.init(["nabanita","sarker","NS"]);
+        test.equal(arrEqual(result,["nabanita","sarker"]), true);
+        test.done();
 }
 });
 
@@ -91,7 +96,7 @@ exports['last'] = nodeunit.testCase({
 	test.done();
 },
 
-'last function with an empty array' : function(test) {
+'last function with an empty array should return object' : function(test) {
 	test.equal(typeof (arrays.last([])),'object');
 	test.done();
 },
@@ -104,43 +109,79 @@ exports['last'] = nodeunit.testCase({
 
 /* Test cases of Tail function */
 exports['tail'] = nodeunit.testCase ({
-'tail function with an empty array' : function(test) {
+'tail function with an empty array should return object' : function(test) {
 	test.equal(typeof (arrays.tail([])),'object');
 	test.done();
 },
 
-'tail function with proper array' : function(test) {
+'tail function with an array should return all the array elements except the first one' : function(test) {
 	var result = arrays.tail([1,2,3,4,5]);
 	test.equal(arrEqual(result,[2,3,4,5]), true);
 	test.done();
+},
+'tail function with a string array should return all the elements except the first one' : function(test) {
+	var result = arrays.tail(["Red","Green","Yellow","Blue"]);
+        test.equal(arrEqual(result,["Green","Yellow","Blue"]), true);
+        test.done();
 }
 });
 
+
 /* Test cases of distinct function */
 exports['distinct'] = nodeunit.testCase ({
-'distinct function with an empty array' : function(test) {
+'distinct function with an empty array should return zero elements' : function(test) {
 	var result = arrays.distinct([]);
 	test.equal(result.length,0);
 	test.done();
 },
-'distinct function with an array' : function(test) {
+'distinct function with an array should not return repetitive elements' : function(test) {
 	var result = arrays.distinct([1,2,1,2,3]);
 	test.equal(arrEqual(result, [1, 2, 3]), true);
 	test.done();
+},
+'distinct function with string array should not return repetitive elements' : function(test) {
+        var result = arrays.distinct(["bye","bye"]);
+        test.equal(arrEqual(result, ["bye"]), true);
+        test.done();
 }
 });
 
+/* Test cases of drop function */
+exports['drop'] = nodeunit.testCase ({
+'drop function with an empty array should return zero elements' : function(test) {
+        var result = arrays.drop([]);
+        test.equal(result.length, 0);
+        test.done();
+},
+'drop function with an array should return all the elements except the first n ones' : function (test) {
+        var result = arrays.dropRight([1,2,3,4,5],2);
+        test.equal(arrEqual(result, [3,4,5]), true);
+        test.done();
+},
+'drop function with an array of strings should return all the elements except the first n ones' : function (test) {
+        var result = arrays.dropRight(["IND","AUS","US","UK"],2);
+        test.equal(arrEqual(result, ["US","UK"]), true);
+        test.done();
+}
+});
+
+
 /* Test Cases for dropRight */
 exports['dropRight'] = nodeunit.testCase ({
-'dropright function with an empty array' : function(test) {
+'dropright function with an empty array should return zero elements' : function(test) {
 	var result = arrays.dropRight([]);
 	test.equal(result.length, 0);
 	test.done();
 },
-'dropright function with an array' : function (test) {
+'dropright function with an array should return all the elements except the last n ones' : function (test) {
 	var result = arrays.dropRight([1,2,3,4,5],2);
 	test.equal(arrEqual(result, [1,2,3]), true);
 	test.done();
+},
+'dropright function with an array of strings should return all the elements except the last n ones' : function (test) {
+        var result = arrays.dropRight(["IND","AUS","US","UK"],2);
+        test.equal(arrEqual(result, ["IND","AUS"]), true);
+        test.done();
 }
 });
 
@@ -161,6 +202,14 @@ exports['dropWhile'] = nodeunit.testCase ({
 	var result = (arrays.dropWhile([1,2,3,4,5,6], isOdd));
 	test.equal(arrEqual(result,[2,4,6]),true);
 	test.done();
+},
+'dropwhile on an odd array should return an empty array' : function (test) {
+	var isOdd = function (n) {
+        return (n%2)!=0;
+        };
+        var result = (arrays.dropWhile([1,3,5,7], isOdd));
+        test.equal(arrEqual(result,[]),true);
+        test.done();
 }
 });
 
@@ -205,6 +254,14 @@ exports['filter'] = nodeunit.testCase ({
         var result = arrays.filter([1,2,3,4,5,6,7,8,9,10],isEven);
         test.equal(arrEqual(result,[2,4,6,8,10]),true);
         test.done();
+},
+'filter on an array of odd number should return an empty array' : function(test) {
+	var isEven = function(n){
+        return (n%2) == 0;
+        };
+        var result = arrays.filter([1,3,5,7,9],isEven);
+        test.equal(arrEqual(result,[]),true);
+        test.done();
 }
 });
 
@@ -224,6 +281,22 @@ exports['filterNot'] = nodeunit.testCase ({
         	return (n%2) == 0
         };
         var result = arrays.filterNot([1,2,3,4,5,6,7,8,9,10],isEven);
+        test.equal(arrEqual(result,[1,3,5,7,9]),true);
+        test.done();
+},
+'filternot on an array of even numbers' : function (test) {
+	var isEven = function(n){
+                return (n%2) == 0
+        };
+        var result = arrays.filterNot([2,4,6,8,10],isEven);
+        test.equal(arrEqual(result,[]),true);
+        test.done();
+},
+'filternot on an array of odd numbers' : function (test) {
+	var isEven = function(n){
+                return (n%2) == 0
+        };
+        var result = arrays.filterNot([1,3,5,7,9],isEven);
         test.equal(arrEqual(result,[1,3,5,7,9]),true);
         test.done();
 }
@@ -246,7 +319,15 @@ exports['find'] = nodeunit.testCase ({
         var result = arrays.find([1,2,3,4,5,6,7,8,9,10],isEven);
         test.equal(arrEqual(result,[2]),true);
         test.done();
-}
+},
+/* 'array with odd number should not match the predicate and also should return empty string' : function(test){
+	var isEven = function(n){
+                return (n%2) == 0;
+        }
+	var result = arrays.find([1,3,5,7,9],isEven);
+	test.equal(arrEqual(result,[]),true);
+	test.done();
+}*/
 });
 
 /* TestCases for flatten */
@@ -261,6 +342,11 @@ exports['flatten'] = nodeunit.testCase ({
 	var result = arrays.flatten([],[]);
         test.equal(result,0);
         test.done();
+},
+'flatten for two string' : function (test) {
+	var result = arrays.flatten(["one","two"],["three","four"]);
+	test.equal(arrEqual(result,["one","two","three","four"]),true);
+	test.done();
 }
 });
 
