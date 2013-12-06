@@ -365,3 +365,17 @@ exports['union'] = nodeunit.testCase ({
 }
 });
 
+/* TestCases for zip */
+
+exports['zip'] = nodeunit.testCase ({
+'zip between two arrays should return a zipped array' : function(test){
+	var result = arrays.zip([1,2,3,4,5],[5,4,3,2,1]);
+	test.equal(arrEqual(result,[[1,5],[2,4],[3,3],[4,2],[5,1]]),true);
+	test.done();
+},
+'zip between one numeric and one string array' : function (test){
+	var result = arrays.zip([1,2,3,4,5],['a','b','c','d','e']);
+        test.equal(arrEqual(result,[[1,'a'],[2,'b'],[3,'c'],[4,'d'],[5,'e']]),true);
+        test.done();
+}
+});

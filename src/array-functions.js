@@ -187,4 +187,16 @@ console.log(intersect([1,2,3,4,5],[3,4,5,6,7,8]));
 }
 
 console.log(grouped([1,2,3,4,5,6,7,8,9,10],3)); */
-                                                   
+
+/* Zip function */
+
+exports.zip = function(a,b){
+        var i;
+        var zipArray = [];
+        for(i = 0; i < a.length; i++){
+                zipArray.push([a[i],b[i]]);
+        }
+        return zipArray;
+}
+
+//console.log(zip([1,2,3,4,5],[5,4,3,2,1]));                                                   
