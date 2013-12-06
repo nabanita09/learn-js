@@ -377,5 +377,28 @@ exports['zip'] = nodeunit.testCase ({
 	var result = arrays.zip([1,2,3,4,5],['a','b','c','d','e']);
         test.equal(arrEqual(result,[[1,'a'],[2,'b'],[3,'c'],[4,'d'],[5,'e']]),true);
         test.done();
+},
+'zip two empty array' : function (test){
+	var result = arrays.zip([],[]);
+        test.equal(arrEqual(result.length,0),true);
+        test.done();
+}
+});
+
+exports['zipWithIndex'] = nodeunit.testCase ({
+'zipwithindex for array of strings' : function (test){
+	var result = arrays.zipWithIndex(["a","b","c"]);
+	test.equal(arrEqual(result,[["a",0],["b",1],["c",2]]),true);
+	test.done();
+},
+'zipwithindex for empty array' : function (test){
+	var result = arrays.zipWithIndex([]);
+        test.equal(arrEqual(result.length,0),true);
+        test.done();
+},
+'zipwithindex for array of numbers' : function (test){
+	var result = arrays.zipWithIndex([1,2,3]);
+        test.equal(arrEqual(result,[[1,0],[2,1],[3,2]]),true);
+        test.done();
 }
 });

@@ -199,4 +199,17 @@ exports.zip = function(a,b){
         return zipArray;
 }
 
-//console.log(zip([1,2,3,4,5],[5,4,3,2,1]));                                                   
+/* zipWithIndex function */
+
+exports.zipWithIndex = function(a){
+        var index, i;
+        var zipIndex = [];
+        for(i = 0; i < a.length; i++){
+                index = a.indexOf(a[i]);
+                zipIndex.push([a[i],index]);
+        }
+        return zipIndex;
+}
+
+//console.log(zipWithIndex(["a","b","c"]));
+                                        
