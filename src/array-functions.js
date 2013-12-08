@@ -211,5 +211,47 @@ exports.zipWithIndex = function(a){
         return zipIndex;
 }
 
-//console.log(zipWithIndex(["a","b","c"]));
-                                        
+
+/* fold function */ 
+
+/*var fold = function (a, z, op) {
+
+}
+ 
+var add = function(a, b) {
+	return (a + b);
+};
+var mult = function(a, b) {
+	return (a * b);
+};
+ 
+fold([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 0, add);
+fold([1, 2, 3, 4, 5], 1, mult);*/
+
+
+/* ZipAll function */
+// a shorter than b
+var zipLeft(a, b, pad) {
+var result = [];
+
+ for(var i = 0; i < a.length; i++) {
+   result.push([a[i], b[i]])
+ }
+
+ for(var j = a.length; j < b.length; j++) {
+   result.push([b[i], pad])
+ }
+};
+
+var zipAll = function(a,b,c,d){
+
+if (a.length > b.length) {
+   return zipLeft(a,b,c)
+ }
+ else {
+   return zipLeft(b, a, d)
+ }
+
+}
+
+console.log(zipAll([1,2,3,4], [1,2], 100, 200));                                       
